@@ -1,0 +1,71 @@
+
+Microsoft (R) Windows Debugger Version 10.0.19528.1000 X86
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+CommandLine: "C:\Program Files (x86)\IrfanView\i_view32.exe" "C:\Users\nhiephon\Desktop\ReadDDS_W_crashes\id_000000_00.dds"
+
+************* Path validation summary **************
+Response                         Time (ms)     Location
+Deferred                                       srv*
+Symbol search path is: srv*
+Executable search path is: 
+ModLoad: 00400000 005dc000   image00400000
+ModLoad: 77690000 7782a000   ntdll.dll
+Page heap: pid 0x70: page heap enabled with flags 0x3.
+ModLoad: 61180000 611e3000   C:\Windows\SysWOW64\verifier.dll
+Page heap: pid 0x70: page heap enabled with flags 0x3.
+ModLoad: 75590000 75670000   C:\Windows\SysWOW64\KERNEL32.DLL
+ModLoad: 75250000 7544e000   C:\Windows\SysWOW64\KERNELBASE.dll
+ModLoad: 774e0000 77677000   C:\Windows\SysWOW64\USER32.dll
+ModLoad: 75130000 75147000   C:\Windows\SysWOW64\win32u.dll
+ModLoad: 77010000 77031000   C:\Windows\SysWOW64\GDI32.dll
+ModLoad: 767d0000 7692b000   C:\Windows\SysWOW64\gdi32full.dll
+ModLoad: 76150000 761cc000   C:\Windows\SysWOW64\msvcp_win.dll
+ModLoad: 75010000 7512f000   C:\Windows\SysWOW64\ucrtbase.dll
+ModLoad: 75a40000 75fb9000   C:\Windows\SysWOW64\SHELL32.dll
+ModLoad: 72c40000 72e4f000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.900_none_2e6bf0b02790a61d\COMCTL32.dll
+ModLoad: 75720000 7575b000   C:\Windows\SysWOW64\cfgmgr32.dll
+ModLoad: 77380000 7743f000   C:\Windows\SysWOW64\msvcrt.dll
+ModLoad: 75670000 756f4000   C:\Windows\SysWOW64\shcore.dll
+ModLoad: 75760000 759d5000   C:\Windows\SysWOW64\combase.dll
+ModLoad: 76010000 760cb000   C:\Windows\SysWOW64\RPCRT4.dll
+ModLoad: 05780000 0583b000   C:\Windows\SysWOW64\RPCRT4.dll
+ModLoad: 74e60000 74e80000   C:\Windows\SysWOW64\SspiCli.dll
+ModLoad: 76a30000 76ff6000   C:\Windows\SysWOW64\windows.storage.dll
+ModLoad: 74e50000 74e5a000   C:\Windows\SysWOW64\CRYPTBASE.dll
+ModLoad: 75470000 754cf000   C:\Windows\SysWOW64\bcryptPrimitives.dll
+ModLoad: 77300000 77376000   C:\Windows\SysWOW64\sechost.dll
+ModLoad: 76640000 766b9000   C:\Windows\SysWOW64\advapi32.dll
+ModLoad: 75450000 7546b000   C:\Windows\SysWOW64\profapi.dll
+ModLoad: 75200000 75243000   C:\Windows\SysWOW64\powrprof.dll
+ModLoad: 766c0000 766cd000   C:\Windows\SysWOW64\UMPDC.dll
+ModLoad: 75fc0000 76004000   C:\Windows\SysWOW64\shlwapi.dll
+ModLoad: 77000000 7700f000   C:\Windows\SysWOW64\kernel.appcore.dll
+ModLoad: 75700000 75713000   C:\Windows\SysWOW64\cryptsp.dll
+(70.2588): Break instruction exception - code 80000003 (first chance)
+eax=00000000 ebx=00234000 ecx=6f6b0000 edx=00000000 esi=0500a798 edi=7769688c
+eip=7773eaa2 esp=0019fa20 ebp=0019fa4c iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!LdrpDoDebuggerBreak+0x2b:
+7773eaa2 cc              int     3
+0:000> g
+ModLoad: 77450000 77475000   C:\Windows\SysWOW64\IMM32.DLL
+ModLoad: 70820000 7089a000   C:\Windows\SysWOW64\uxtheme.dll
+ModLoad: 74e80000 74f83000   C:\Windows\SysWOW64\MSCTF.dll
+ModLoad: 75150000 751e2000   C:\Windows\SysWOW64\OLEAUT32.dll
+ModLoad: 10000000 1018a000   C:\Program Files (x86)\IrfanView\Plugins\FORMATS.DLL
+(70.2588): Access violation - code c0000005 (first chance)
+First chance exceptions are reported before any exception handling.
+This exception may be expected and handled.
+*** WARNING: Unable to verify checksum for C:\Program Files (x86)\IrfanView\Plugins\FORMATS.DLL
+eax=0afdb000 ebx=0afdcfe0 ecx=000003d8 edx=00000000 esi=0afda0a0 edi=0afdd000
+eip=1003c9c3 esp=0019df84 ebp=0019df8c iopl=0         nv up ei pl nz ac pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010216
+FORMATS!GetPlugInInfo+0x7d33:
+1003c9c3 f3a5            rep movs dword ptr es:[edi],dword ptr [esi]
+0:000> .load msec32_106
+0:000> !exploitable
+Exploitability Classification: EXPLOITABLE
+Recommended Bug Title: Exploitable - User Mode Write AV starting at FORMATS!GetPlugInInfo+0x0000000000007d33 (Hash=0x4d644c50.0x3c1f3419)
+
+User mode write access violations that are not near NULL are exploitable.
